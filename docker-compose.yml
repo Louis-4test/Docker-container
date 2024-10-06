@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  nginx_a:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+
+  nginx_b:
+    build:
+      context: .
+      dockerfile: Dockerfile.b
+    ports:
+      - "9090:80"
+    volumes:
+      - ./index_b.html:/usr/share/nginx/html/index.html
